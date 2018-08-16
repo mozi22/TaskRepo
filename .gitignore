@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+sparktask/
+metastore_db/
+derby.log
+
 # C extensions
 *.so
 

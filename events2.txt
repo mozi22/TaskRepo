@@ -1,0 +1,7 @@
+user_uid category event_type
+123 [fashion,sports] teaser_displayed
+123 [fashion,politics] teaser_opened
+456 [technology] teaser_opened
+456 [sports,technology] teaser_opened
+457 [technology] teaser_opened
+
