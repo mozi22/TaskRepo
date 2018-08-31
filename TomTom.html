@@ -11775,14 +11775,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Todo:">Todo:<a class="anchor-link" href="#Todo:">&#182;</a></h3><h5 id="Task-1:">Task 1:<a class="anchor-link" href="#Task-1:">&#182;</a></h5><p>1) Check the performances of providers and find out which provider has worst or better performance with respect to mapMatching values.</p>
-<p>2) Find the reason for why one of the providers is the worst amongst the others.</p>
+<h3 id="Todo:">Todo:<a class="anchor-link" href="#Todo:">&#182;</a></h3><h5 id="Task-1:">Task 1:<a class="anchor-link" href="#Task-1:">&#182;</a></h5><p>Represent atleast one cause of missing MapMatching samples</p>
 <h5 id="Task-2:">Task 2:<a class="anchor-link" href="#Task-2:">&#182;</a></h5><p>Check how driver drives at different times spans of the day. Make comparisons between different days during same hours. This will tell us if the time of the day makes a difference in the avg. driving speed(kph) i.e how time of the day effects the driving speed.</p>
 <h5 id="Task-3:">Task 3:<a class="anchor-link" href="#Task-3:">&#182;</a></h5><p>Calculate additional features from the given features. ( TimeDiff &amp; RoadLength )</p>
 <h5 id="Task-4:">Task 4:<a class="anchor-link" href="#Task-4:">&#182;</a></h5><p>Try to predict the missing MapMatching values</p>
 <p>Steps:</p>
 <p>1) Convert timestamp to unix timestamp</p>
 <p>2) train the model on the timediff, speed, roadlength  and data providers as features.</p>
+<p><font color='red'>Note: All the text written in green color represents the o. The discussions ( green color text ) are written first and the charts are shown later in the following cells.</font></p>
 
 </div>
 </div>
@@ -12254,47 +12254,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h6 id="Unique-Days">Unique Days<a class="anchor-link" href="#Unique-Days">&#182;</a></h6>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[130]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">date</span><span class="p">())</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[130]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1050</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Task-1-(Solution):">Task 1 (Solution):<a class="anchor-link" href="#Task-1-(Solution):">&#182;</a></h2><p><font color='green'></p>
 <p>&lt;/font&gt;</p>
 
@@ -12306,8 +12265,10 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finding the worst provider with maximum -- values in the dataset.</p>
-<p><font color='green'>We come to conclude that the worst provider is provider 1</font></p>
-<p>Now we'll try to figure out why ?</p>
+<p><font color='green'></p>
+<p>We come to conclude that the worst provider is provider 1
+&lt;/font&gt;</p>
+<p>Now we'll try to figure out atleast one reason, why ?</p>
 
 </div>
 </div>
@@ -12465,8 +12426,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><font color='green'>Next the idea is to scatter plot the average speed with respect to time to find out patterns that helps us identify why the MapM values are missing in our data. The range of speed for both the plots with and without '--' values is somewhat similar but we do identify in the second plot that the points distribution is more dense in the later times compared to the previous times. One idea to further visualize it will be to identify how the difference in time between readings is effecting the MapM values.</font></p>
-
+<h5 id="Next-the-idea-is-to-scatter-plot-the-average-speed-with-respect-to-time-to-find-out-patterns-that-helps-us-identify-why-the-MapM-values-are-missing-in-our-data.">Next the idea is to scatter plot the average speed with respect to time to find out patterns that helps us identify why the MapM values are missing in our data.<a class="anchor-link" href="#Next-the-idea-is-to-scatter-plot-the-average-speed-with-respect-to-time-to-find-out-patterns-that-helps-us-identify-why-the-MapM-values-are-missing-in-our-data.">&#182;</a></h5>
 </div>
 </div>
 </div>
@@ -12575,9 +12535,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><font color='green'>If we take a look at the resulting plot below. We can see that for the first scatter plot most of the values have a large time difference between the previous and the next reading. Ofcourse this is not the only factor that is playing it's part in the reading not being able to detected properly but this is one major factor. While for the second plot, it can be clearly observed that most of the values have a smaller time difference.</p>
-<p><b>Note:</b> The x-axis represent the time difference between the last reading and the next reading. And y-axis represent the speed of the data. The first plot represents all the samples where we have MapM values while the second represents the samples without MapM values.
-&lt;/font&gt;</p>
+<p><font color='green'>The range of speed for both the plots(above) with and without '--' values is somewhat similar but we do identify in the second plot that the points distribution is more dense in the later times compared to the previous times. One idea to further visualize it will be to identify how the difference in time between readings is effecting the MapM values.</font></p>
 
 </div>
 </div>
@@ -12682,15 +12640,24 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><font color='green'>If we take a look at the resulting plots above. We can see that for the first scatter plot most of the values have a large time difference between the previous and the next reading. Ofcourse this is not the only factor that is playing it's part in the reading not being able to detected properly but this is one major factor. While for the second plot, it can be clearly observed that most of the values have a smaller time difference.</p>
+<p><b>Note:</b> The x-axis represent the time difference between the last reading and the next reading. And y-axis represent the speed of the data. The first plot represents all the samples where we have MapM values while the second represents the samples without MapM values.
+&lt;/font&gt;</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Task-2-(Solution)">Task 2 (Solution)<a class="anchor-link" href="#Task-2-(Solution)">&#182;</a></h2><h6 id="divided-each-day-into-4-quaters.">divided each day into 4 quaters.<a class="anchor-link" href="#divided-each-day-into-4-quaters.">&#182;</a></h6><ul>
 <li>q1 = 00:00 to 06:00</li>
 <li>q2 = 06:00 to 12:00</li>
 <li>q3 = 12:00 to 18:00</li>
 <li>q4 = 18:00 to 23:00</li>
 </ul>
-<h6 id="And-than,-visualized-the-distribution-of--speed-values-among-different-times-of-the-day.-The-following-points-can-be-observed-from-the-results.">And than, visualized the distribution of  speed values among different times of the day. The following points can be observed from the results.<a class="anchor-link" href="#And-than,-visualized-the-distribution-of--speed-values-among-different-times-of-the-day.-The-following-points-can-be-observed-from-the-results.">&#182;</a></h6><p><font color='green'></p>
-<p>The plot of q1 suggests most of the people are driving slightly above 40km/h. This is the only quarter where most of the drivers prefer to go around 40km/h or more (on average) while for the other quarters(q2,q3,q4) it can be observed that there are two spikes in the graphs. This can be due to the fact that the other quarters represent more busy parts of the day where drivers can be caused to slow down.&lt;/font&gt;</p>
-
+<h6 id="And-than,-visualized-the-distribution-of--speed-values-among-different-times-of-the-day.">And than, visualized the distribution of  speed values among different times of the day.<a class="anchor-link" href="#And-than,-visualized-the-distribution-of--speed-values-among-different-times-of-the-day.">&#182;</a></h6>
 </div>
 </div>
 </div>
@@ -12804,10 +12771,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Task-3-(Solution)">Task 3 (Solution)<a class="anchor-link" href="#Task-3-(Solution)">&#182;</a></h2><p><font color='green'></p>
-<p>We calculate additional feature i.e the <b>time difference</b> from the last reading to the current reading. This additional feature will be a good use to find patterns in data to train a machine learning model for prediction of MapMatching values. This will also ensure a feature with values repeating in a certain range whereas the timestamp contains unique values for each sample which doesn't tells us much.
-&lt;/font&gt;</p>
+<p><font color='green'></p>
+<p>The plot of q1 suggests most of the people are driving slightly above 40km/h. This is the only quarter where most of the drivers prefer to go around 40km/h or more (on average) while for the other quarters(q2,q3,q4) it can be observed that there are two spikes in the graphs. This can be due to the fact that the other quarters represent more busy parts of the day where drivers can be caused to slow down.&lt;/font&gt;</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Task-3-(Solution)">Task 3 (Solution)<a class="anchor-link" href="#Task-3-(Solution)">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13363,6 +13337,17 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color='green'></p>
+<p>We calculate additional feature i.e the <b>time difference</b> from the last reading to the current reading. This additional feature will be a good use to find patterns in data to train a machine learning model for prediction of MapMatching values. This will also ensure a feature with values repeating in a certain range whereas the timestamp contains unique values for each sample which doesn't tells us much.
+&lt;/font&gt;</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
@@ -13377,18 +13362,6 @@ div#notebook {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Visualizing-the-correlation-matrix-plot-of-found-features-in-a-plot">Visualizing the correlation matrix plot of found features in a plot<a class="anchor-link" href="#Visualizing-the-correlation-matrix-plot-of-found-features-in-a-plot">&#182;</a></h5><p><font color='green'>
-We're just visualizing here how different features in the data are correlated to each other.</p>
-<p>Additioanlly,We are calculating a feature called <b>Road Length</b> using a simple speed=distance/time formula to estimate the length of road using the average given speed and the timedifference we calculated previously between the previous and the current reading. 
-&lt;/font&gt;</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13437,6 +13410,18 @@ We're just visualizing here how different features in the data are correlated to
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Visualizing-the-correlation-matrix-plot-of-found-features-in-a-plot">Visualizing the correlation matrix plot of found features in a plot<a class="anchor-link" href="#Visualizing-the-correlation-matrix-plot-of-found-features-in-a-plot">&#182;</a></h5><p><font color='green'>
+We're just visualizing above how different features in the data are correlated to each other.</p>
+<p>Additioanlly,We are calculating a feature called <b>Road Length</b> using a simple speed=distance/time formula to estimate the length of road using the average given speed and the timedifference we calculated previously between the previous and the current reading. 
+&lt;/font&gt;</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
