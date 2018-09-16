@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+data/
 sparktask/
 metastore_db/
 derby.log
